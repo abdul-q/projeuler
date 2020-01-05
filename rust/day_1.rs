@@ -10,17 +10,19 @@ Also, replace 1000 with a parameter. Such that, the problem will solve for a giv
 
 fn main() {
     //
+    for elmt in find_multiples(10){
+        println!("{:?}", elmt);
+    }
 }
 
-fn find_multiples(given_num: i64) -> i64 {
+fn find_multiples(given_num: i64) -> Vec<i64> {
     //
-    let mut col_3_5: Vec<f64> = Vec::new();
+    let mut col_3_5: Vec<i64> = Vec::new();
 
-    for nums in 1..=given_num {
-        if nums % 3 || nums % 5 {
-            col_3_5.push(nums)
+    for nums in 1..given_num+1 {
+        if nums % 3 == 0 || nums % 5 == 0 {
+            col_3_5.push(nums as i64)
         }
     }
-
-    col_3_5.iter().
+    col_3_5
 } 
