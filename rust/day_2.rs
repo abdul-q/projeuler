@@ -11,7 +11,11 @@ const FIBO_1_2: i32 = 1;
 
 fn main() {    
     let mut map = HashMap::new();
-    println!("{}", fibo_num(10, &mut map));
+    let num = 3;
+
+    for n in 1..num+1 {
+        println!("{}", fibo_num(n, &mut map));
+    }
 }
 
 fn fibo_num(num: i32, map: &mut HashMap<i32, i32>) -> i32 {
@@ -28,3 +32,9 @@ fn fibo_num(num: i32, map: &mut HashMap<i32, i32>) -> i32 {
         }
     }
 }
+
+// fn make_iterable(num: i32) {
+//     for numbers in 1..=num {
+//         println!("{}", fibo_num(numbers, &mut map));
+//     }
+// }
