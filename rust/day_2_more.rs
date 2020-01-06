@@ -12,19 +12,27 @@ const FIBO_1_2: i32 = 1;
 fn main() {    
     let mut map = HashMap::new();
     let num = 43;
-    let num_u: usize = 42;
     let mut all_fibo: Vec<i32> = Vec::new();
     let mut even_fibo: Vec<i32> = Vec::new();
     let mut even_sum = 0;
     
     for n in 1..=num {
+        // println!("{}", fibo_num(n, &mut map));
         all_fibo.push(fibo_num(n, &mut map));
     }
     println!("{:#?}", all_fibo);
         
+    // for num_e in all_fibo.iter() {
+    //     if num_e % 2 == 0 {
+    //         even_fibo.push(*num_e);
+    //     }
+    //     while num_e < &UPPER_LIMIT {
+    //         even_sum = even_fibo.iter().sum::<i32>();
+    //     }        
+    // }
+        
     for num_e in all_fibo.iter() {
-        // while num_e < &UPPER_LIMIT {
-        while num_e < all_fibo.iter().nth(num_u).unwrap() {
+        while num_e < &UPPER_LIMIT {
             if num_e % 2 == 0 {
                 even_fibo.push(*num_e);
                 even_sum = even_fibo.iter().sum::<i32>();
@@ -32,7 +40,9 @@ fn main() {
             break
         }        
     }
+
     println!("{:#?}", even_fibo);
+    // let even_sum = even_fibo.iter().sum::<i32>();
     println!("{}", even_sum);
 }
 
@@ -50,3 +60,25 @@ fn fibo_num(num: i32, map: &mut HashMap<i32, i32>) -> i32 {
         }
     }
 }
+
+// fn even_list(num: i32, all_fibo: Vec<i32>, map: HashMap<i32, i32>) -> Vec<i32> {
+//     for n in 1..=num {
+//         all_fibo.push(fibo_num(num, &mut map));
+//     }
+// }
+
+// fn fibo_num(num: i32, map: &mut HashMap<i32, i32>) -> i32 {
+//     match num {
+//         0 | 1 | 2 => FIBO_1_2,
+//         num => {
+//             if map.contains_key(&num) {
+//                 *map.get(&num).unwrap()
+//             } else {
+//                 let result = fibo_num(num - 1, map) + fibo_num(num - 2, map);
+//                 map.insert(num, result);
+//                 result
+//             }
+//         }
+//     }
+// }
+
